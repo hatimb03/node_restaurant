@@ -8,31 +8,31 @@
 // 4. Define event listeners with the help of default connection object
 // 5. Now export the object and import it in server.js
 
+const mongoose = require("mongoose");
 
-const mongoose = require('mongoose');
-
-const mongoURL = 'mongodb://localhost:27017/restaurant';
+const mongoURL = "mongodb://localhost:27017/restaurant";
 
 mongoose.connect(mongoURL, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true
-})
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true
+});
 
 //Getting the default connection
 const db = mongoose.connection;
 
-//Event listeners 
+//Event listeners
 
-db.on('connected', () => {
-    console.log("Connected to mongodb server");
-})
+db.on("connected", () => {
+  console.log("Connected to mongodb server");
+});
 
-db.on('disconnected', () => {
-    console.log("Disonnected from mongodb server");
-})
+db.on("disconnected", () => {
+  console.log("Disonnected from mongodb server");
+});
 
-db.on('error', (err) => {
-    console.log("Error connecting to the server", err);
-})
+db.on("error", (err) => {
+  console.log("Error connecting to the server", err);
+});
 
+//Comment added for testing purposes
 module.exports = db;
